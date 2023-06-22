@@ -1,0 +1,4 @@
+{% for tache in taches %}
+{% csrf_token %} 
+<p>{{ tache.description }}</p>
+{% endfor %}

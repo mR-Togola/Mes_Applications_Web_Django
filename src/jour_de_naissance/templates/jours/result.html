@@ -1,0 +1,45 @@
+{% load static %}
+<style>
+    body {
+        background-image: url("{% static 'images/image_1.jpg'%}");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        color: white;
+    }
+
+    .container {
+        position: relative;
+        text-align: center;
+        font-size: 2rem;
+        margin: 210px auto;
+        font-weight: bold;
+    }
+
+    .container p {
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+
+    }
+
+    a {
+        position: relative;
+        top: 50px;
+        left: 30px;
+        font-weight: 600;
+        color: blue;
+    }
+</style>
+
+<body>
+
+    <title>JOUR DE NAISSANCE</title>
+    <a href="{% url 'naissance:jour'%}">Retour</a>
+
+    <div class="container">
+
+        <p><span>Votre jour de naissance est : {{ birth_day|upper }}</span> </p>
+    </div>
+</body>

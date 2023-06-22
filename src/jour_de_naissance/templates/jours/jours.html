@@ -1,0 +1,127 @@
+{% load static %}
+
+<style>
+    body {
+        background-image: url("{% static 'images/image_1.jpg'%}");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        color: wheat;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin: 210px auto;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.5rem;
+
+
+    }
+
+    .container-form {
+        font-size: 2rem;
+    }
+
+    .container-form .button {
+        font-size: 1.9rem;
+        cursor: pointer;
+        width: 45%;
+        color: white;
+        background-color: maroon;
+        border-radius: 2rem;
+
+    }
+    .container-form .button:hover{
+        color:black;
+        background-color:white;
+    }
+
+    
+
+    #birth_date {
+        border-radius: 2rem;
+        font-size: 2rem;
+        text-align: center;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    #birth_date:hover{
+        color: green;
+        border: 3px solid green;
+    }
+
+    @media screen and (max-width: 450px) {
+        .container {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin: 100px auto;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.5rem;
+
+        }
+
+        #birth_date {
+            border-radius: 1rem;
+            font-size: 2rem;
+            width: 100%;
+            height: 2rem;
+            text-align: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .container-form .button {
+            font-size: 1.5rem;
+            width: 50%;
+            height: 2rem;
+            border-radius: 2rem;
+            cursor: pointer;
+
+        }
+
+    }
+    a{
+        position: relative;
+        top: 50px;
+        left: 30px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: blue;
+    }
+    label{
+        font-weight:bold;
+        color:white;
+    }
+   
+</style>
+<title>Trouve ton jour de naissance</title>
+
+<body>
+    <a href="{% url 'blog-index'%}">Accueil</a>
+    <div class="container">
+        {% if error_message %}
+        <p>{{ error_message }}</p>
+        {% endif %}
+
+        <div class="container-form">
+            <form method="POST" action="{% url 'naissance:find_birth_day' %}">
+                {% csrf_token %}
+                <label for="birth_date">Entrez votre date de naissance (JJ/MM/AAAA):</label>
+                <br>
+                <input type="text" id="birth_date" name="birth_date">
+                <br>
+                <button type="submit" class="button">Trouver le Jour</button>
+            </form>
+        </div>
+    </div>
+
+</body>

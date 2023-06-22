@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil</title>
+    <link rel="icon" type="image/jpg" href="{% static 'css1/images/fc_image.jpg'%}">
+    <link rel="stylesheet" href="{% static 'css1/style.css' %}">
+    <style>
+        .navbar div.nav-links ul li a {
+            font-size: 1.5rem;
+        }
+
+
+        .container10 a {
+            position: absolute;
+            display: block;
+            top: 110px;
+            right: 10px;
+            margin-bottom: 10px;
+            color: rgb(241, 241, 241);
+           
+
+        }
+
+        .container10 a:first-child {
+            margin-top: 30px;
+        }
+
+        #button:hover{
+            background-color: blue;
+            color: white;
+        }
+        .cache a {
+            border: 1px solid rgb(0, 0, 0);
+            background-color: rgb(211, 6, 6);
+            font-weight: bold;
+            padding: 0 20px;
+            
+        }
+      
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="logo">TOGOLA</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="{% url 'posts:home' %}">Blog</a></li>
+                <li class="active"><a href="https://mr-togola.github.io/Togola_Portfolio/" target="_blank">MonCV</a>
+                </li>
+                <button id="button">Mes Applications Web</button>
+            </ul>
+        </div>
+
+    </nav>
+    <div id="liens" class="container10 cache">
+        <a href="{% url 'password:password_generator' %}">Trouve Un Password Génial</a>
+        <a href="{% url 'naissance:jour' %}">Trouve Ton Jour Naissance</a>
+    </div>
+
+    <div class="container">
+        <h1>{{ actu }}, Bienvenue sur mon site</h1>
+        <h2>Aujourd'hui, c'est le {{heure|date:"d F Y"}}</h2>
+        <h3>Il est actuellement : {{ heure|date:" H\h i"}}</h3>
+        <a href="{% url 'inscription' %}" class="inscription" style="font-weight: bold;">Inscrivez-vous !</a>
+    </div>
+
+    <script>
+        var toggleButton = document.getElementById("button");
+        var element = document.getElementById("liens");
+        element.style.display = "none";
+        toggleButton.addEventListener("click", function() {
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        });
+          
+
+    </script>
+
+</body>
+
+</html>

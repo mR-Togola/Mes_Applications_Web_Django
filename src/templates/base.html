@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    {% block title%}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+    <link rel="icon" type="image/jpg" href="{% static 'css1/images/fc_image.jpg'%}">
+</head>
+<body>
+
+     <nav>
+      {% block accueil %}
+        <a href="{% url 'posts:' %}">Accueil</a>
+      {% endblock accueil %} 
+        <a href="{% url 'posts:create' %}">Ajouter un article</a>
+        
+     </nav>
+     <section id="blog">
+        {% block content  %}
+
+        {% endblock %}
+         
+     </section>
+    
+</body>
+</html>

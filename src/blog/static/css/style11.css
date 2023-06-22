@@ -1,0 +1,16 @@
+
+.post-title  a {
+        position: absolute; 
+        right: 150px;
+        margin-bottom: 30px;
+   }
+
+
+
+@media (max-width: 901px){
+    .post-title a {
+       right: 5px;
+
+    }
+}
+

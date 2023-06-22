@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/2?family=Raleway:wgh300&display=swap');
+@import "reset.css";
+
+
+body{
+   background-image: url('images/cover.jpg');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+   font-family: 'Raleway', sans-serif;
+   color: white;  
+
+}
+nav{
+    margin: 2rem;
+    display: flex;
+    justify-content: space-between;
+   
+}
+nav a{
+    font-weight: 600;
+    font-size: 20px;
+    color: red;
+    text-decoration: none;
+}
+#blog{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#blog article{
+    width: 60%;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+@media (max-width: 1024px){
+    #blog article{
+        width: 100%;
+       
+    }
+}
+
+.post-title{
+    display: flex;
+    align-items: center;
+
+}
+
+.post-title div a:last-child{
+    color: red;
+}
+
+.post-title a{
+    color: green;
+    text-decoration: none;
+    margin-left: 2rem;
+}
+
+.post-title > div {
+    margin-left: auto;
+}
+
+.post-author{
+    margin: .8rem 0;
+}
+.post-excerpt{
+    margin-bottom: 1rem;
+}
+
+
+.post-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.post-detail > h1 {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 1rem;
+
+}
+
+input, textarea {
+    display: block;
+    padding: .80rem;
+    line-height: 1.4;
+    font-size: 1rem;
+    border: 2 solid #ced4da;
+    border-radius: 1rem;
+    width: 800px;
+}
+@media (max-width: 900px){
+    input, textarea {
+        display: block;
+        padding: .80rem;
+        line-height: 1.4;
+        font-size: 1rem;
+        border: 2 solid #ced4da;
+        border-radius: 1rem;
+       width: 300px;
+    }
+    
+}
+@media only screen and (min-width: 571px) and (max-width: 1024px) {
+       
+    .post-title > div {
+        margin-left: 10px;
+    }
+  }
+
+
+@media (max-width: 390px){
+    input, textarea {
+        display: block;
+        padding: .80rem;
+        line-height: 1.4;
+        font-size: 1rem;
+        border: 2 solid #ced4da;
+        border-radius: 1rem;
+        width: 100px;
+    }
+   
+}
+@media (max-width: 465px){
+    input, textarea {
+        display: block;
+        padding: .80rem;
+        line-height: 1.4;
+        font-size: 1rem;
+        border: 2 solid #ced4da;
+        border-radius: 1rem;
+        width: 100px;
+    }
+    .post-title > div {
+        margin-left: auto;
+    }
+}
+
+
+label {
+    display: inline-block;
+    box-sizing: border-box;
+    margin: .7rem 0;
+}
+
+
+.btn{
+    padding: .8rem;
+    border: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: .9rem ;
+    color: white;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    cursor: pointer;
+
+}
+.btn-submit{
+ background-color: rgb(13, 47, 160);
+}
+.btn-delete{
+ background-color: indianred;
+}
+
+img{
+    width: 100%;
+    padding-bottom:1rem ;
+}

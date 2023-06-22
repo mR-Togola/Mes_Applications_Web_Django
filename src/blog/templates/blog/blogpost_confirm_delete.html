@@ -1,0 +1,20 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}
+    <title>Supprimer un article </title>
+{% endblock %}
+
+{% block accueil%}
+<a href="{% url 'posts:home' %}">Retour</a>
+{% endblock accueil%} 
+
+
+{% block content %}
+
+    <form  method="POST" style="text-align: center;">
+        {% csrf_token  %}
+        <p>Êtes-vous sûr de vouloir supprimer "{{ post.title }}"?</p>
+        <input type="submit", value="Oui, supprimer" class="btn btn-delete">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% load static  %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Taches</title>
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+
+
+
+</head>
+
+<body>
+    <h1>Les tâches à faire</h1>
+
+
+    <div id="collections">
+        {% for collection in collections %}
+        <button hx-get="{% url 'get_taches' collection.pk %}" hx-targert="#taches">{{ collection.nom }}</button>
+        {% endfor %}
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="collection-name">
+
+        <button hx-post="{% url 'collections_taches' %}" 
+                hx-target="#collections"
+                hx-swap="beforeend"
+                type="submit">Ajoutez
+        </button>
+    </form>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="taches-description">
+
+    <button hx-post="{% url 'add_taches' %}" 
+            hx-target="#taches"
+            hx-swap="beforeend"
+            type="submit">Ajoutez
+    </button>
+</form>
+
+<div id="taches">
+
+    {{ taches }}   
+</div>
+
+
+
+<!--
+    <script>
+        document.body.addEventListener("htmx:responseError", function(evt) {
+            alert(evt.detail.xhr.responseText);
+        })
+    </script> -->
+
+
+</body>
+
+
+</html>

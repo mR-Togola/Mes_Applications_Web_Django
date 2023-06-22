@@ -1,0 +1,19 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}
+    <title>{{ post.title }}</title>
+{% endblock %}
+
+{% block accueil%}
+<a href="{% url 'posts:home' %}">Retour</a>
+{% endblock accueil%} 
+
+{% block content %}
+     <article class="post-detail">
+        <h1>{{ post.title }}</h1>
+        {% if post.thumbnail %}
+         <img src="{{ post.thumbnail.url }}" alt="L'image de l'article">
+        {% endif%}
+        <div>{{ post.content|linebreaks|safe }}</div>
+     </article>
+{% endblock %}
